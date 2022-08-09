@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "cloud:dev": "svelte-kit dev",
-    "cloud:build": "svelte-kit build"
+    "cloud:dev": "vite dev",
+    "cloud:build": "vite build"
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
-    "svelte": "^3.46.0"
+    "svelte": "^3.46.0",
+    "vite": "^3.0.5"
   },
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",

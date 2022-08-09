@@ -5,12 +5,13 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "cloud:dev": "svelte-kit dev",
-    "cloud:build": "svelte-kit build"
+    "cloud:dev": "vite dev",
+    "cloud:build": "vite build"
   },
   "license": "ISC",
   "devDependencies": {
     "@sveltejs/kit": "next",
+    "vite": "^3.0.5",
     "svelte": "^3.46.0",
     "svelte-preprocess": "^4.10.4",
     "tslib": "^2.3.1",
