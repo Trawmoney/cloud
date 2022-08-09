@@ -39,6 +39,6 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npx cloud test
-      - run: npx cloud deploy prod
+      - run: npx @serverless/cloud test
+      - run: npx @serverless/cloud deploy prod
 ```
