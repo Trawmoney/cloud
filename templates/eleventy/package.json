@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
-    "@serverless/cloud": "^2.7.6",
+    "@serverless/cloud": "^2.10.13",
     "http-proxy-middleware": "^2.0.4"
   },
   "serverless": {
