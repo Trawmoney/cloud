@@ -7,7 +7,7 @@
     "cloud:build": "astro build"
   },
   "devDependencies": {
-    "@serverless/cloud": "^2.7.6",
+    "@serverless/cloud": "^2.10.13",
     "astro": "^0.23.7"
   },
   "serverless": {

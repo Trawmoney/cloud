@@ -14,7 +14,7 @@
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
     "@lukeed/uuid": "^2.0.0",
-    "@serverless/cloud": "^2.8.2",
+    "@serverless/cloud": "^2.10.13",
     "cookie": "^0.4.1"
   },
   "serverless": {

@@ -9,7 +9,7 @@
     "test": "cloud test"
   },
   "devDependencies": {
-    "@serverless/cloud": "^2.0.0"
+    "@serverless/cloud": "^2.10.13"
   },
   "serverless": {
     "app": "js-api"
