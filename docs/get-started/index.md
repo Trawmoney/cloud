@@ -27,6 +27,7 @@ Here are the ways to get started with Serverless Cloud. These are:
 Serverless Cloud provides you with a rich set of templates that you can use to start developing against your personal sandbox. Just make sure you are navigated into an empty folder in your Terminal and you have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm​​) installed. All you need to do is to run the following command to start with Serverless Cloud. 
 
 ```
+npm i -g @serverless/cloud
 npm init cloud
 ```
 
