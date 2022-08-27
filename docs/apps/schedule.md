@@ -53,7 +53,7 @@ schedule.cron("0 0 ? * TUE *", () => {
 
 - The , (comma) wildcard includes additional values. In the Month field, JAN,FEB,MAR would include January, February, and March.
 - The - (dash) wildcard specifies ranges. In the Day field, 1-15 would include days 1 through 15 of the specified month.
-- The _ (asterisk) wildcard includes all values in the field. In the Hours field, _ would include every hour. You cannot use \* in both the Day-of-month and Day-of-week fields. If you use it in one, you must use ? in the other.
+- The \* (asterisk) wildcard includes all values in the field. In the Hours field, \* would include every hour. You cannot use \* in both the Day-of-month and Day-of-week fields. If you use it in one, you must use ? in the other.
 - The / (forward slash) wildcard specifies increments. In the Minutes field, you could enter 1/10 to specify every tenth minute, starting from the first minute of the hour (for example, the 11th, 21st, and 31st minute, and so on).
 - The ? (question mark) wildcard specifies one or another. In the Day-of-month field you could enter 7 and if you didn't care what day of the week the 7th was, you could enter ? in the Day-of-week field.
 - The L wildcard in the Day-of-month or Day-of-week fields specifies the last day of the month or week.
