@@ -36,12 +36,6 @@
     "image": "https://s3.us-east-2.amazonaws.com/assets.public.serverless/cloud/astro.svg"
   },
   {
-    "name": "astro-ssr",
-    "title": "Astro SSR (beta)",
-    "description": "Astro.build SSR starter (beta)",
-    "image": "https://s3.us-east-2.amazonaws.com/assets.public.serverless/cloud/astro.svg"
-  },
-  {
     "name": "nextjs",
     "title": "Next.js",
     "description": "Next.js starter app",
@@ -64,11 +58,5 @@
     "title": "SvelteKit (TypeScript)",
     "description": "Simple SvelteKit app using TS",
     "image": "https://s3.us-east-2.amazonaws.com/assets.public.serverless/cloud/svelte-ts.svg"
-  },
-  {
-    "name": "angular-ts",
-    "title": "Angular (TypeScript)",
-    "description": "Angular starter app using TS",
-    "image": "https://s3.us-east-2.amazonaws.com/assets.public.serverless/cloud/angular.svg"
   }
 ]
