@@ -7,5 +7,5 @@ node_modules
 .env.*
 !.env.example
 .output
-/static
 /svelte
+/static
