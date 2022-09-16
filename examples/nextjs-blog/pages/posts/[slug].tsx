@@ -22,6 +22,11 @@ const Post = ({ post, preview }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const title = post
+    ? `${post.title} | Next.js Blog Example with ${CMS_NAME}`
+    : `Next.js Blog Example with ${CMS_NAME}`;
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -32,9 +37,7 @@ const Post = ({ post, preview }: Props) => {
           <>
             <article className="mb-32">
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{title}</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
