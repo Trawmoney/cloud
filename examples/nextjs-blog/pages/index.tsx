@@ -15,11 +15,12 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
+  const title = `Next.js Blog Example with ${CMS_NAME}`;
   return (
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>{title}</title>
         </Head>
         <Container>
           <Intro />

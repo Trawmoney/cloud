@@ -64,7 +64,7 @@ Serverless Cloud currently includes all your non-dev dependencies when you deplo
 
 Some frameworks require special configuration to work with Serverless Cloud. Check the framework-specific section for your framework below.
 
-## Developer Sanbox Proxy
+## Developer Sandbox Proxy
 
 When you run `cloud dev`, your developer sandbox API endpoint is available via `localhost` using a random unassigned port.
 
@@ -156,13 +156,17 @@ export async function getServerSideProps() {
 
 ### Supported versions and features
 
-Serverless Cloud supports Next.js 12 and up, and the following features:
+Serverless Cloud supports Next.js with the following features:
 
 - image optimization
 - middleware
 - static site generation (SSG)
 - server side rendering (SSR)
 - incremental static regeneration (ISR)
+
+Next.js v12.1+ with React 17+.
+
+Streaming server-side rendering is not currently supported.
 
 ### Configuration
 
@@ -172,7 +176,14 @@ Use the Next.js configuration helper to build your configuration in `next.config
 // next.config.js
 import withCloud from "@serverless/cloud/nextjs";
 
-export default withCloud();
+export default withCloud({
+  // optionally provide additional configuration options to Next.js
+  i18n: {
+    locales: ["en", "fr"],
+    defaultLocale: "en",
+    localeDetection: false,
+  },
+});
 ```
 
 ### API fallback

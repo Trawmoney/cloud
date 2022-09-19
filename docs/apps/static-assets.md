@@ -72,3 +72,24 @@ In stage instances, static assets are cached in the CDN for up to 24 hours. Resp
 Caching is disabled in developer sandboxes so you can update your assets and immediately see the latest version when you reload your browser. Responses for static assets in your developer sandbox will include a `Cache-Control` header that disables caching in the CDN, and an additional `X-Cache-Control` header that shows you the value of the header that will be used in stage instances.
 
 **NOTE:** You should always use a stage instance for your "production" instance, to take advantage of the CDN and ensure the best performance for your users.
+
+## Reading static assets from application code
+
+Although static assets can be read from the file system in sandboxes, they are not stored in the file system when your application is deployed to a stage. We recommend that you _not_ read static assets from your application. Any files your application needs at runtime should be stored within your project outside the "static" folder. For example, you can create an "assets" folder to hold images or html files that your application can then read from the file system at runtime.
+
+If your application still needs to read static files, it is possible to do so using the `http.assets.readFile(path)` method. This will return a readable stream you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
+
+```javascript
+import { http } from "@serverless/cloud";
+
+const stream = await http.assets.readFile("images/image.jpeg");
+
+// convert to Buffer for Jimp
+const chunks = [];
+for await (const chunk of stream) {
+  chunks.push(chunk);
+}
+const buffer = Buffer.concat(chunks);
+
+const image = await Jimp.read(buffer);
+```
