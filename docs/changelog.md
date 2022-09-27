@@ -9,6 +9,14 @@ menuOrder: 9
 
 See what's new in Serverless Cloud as we build the most developer-friendly serverless app platform ever! 🚀
 
+## September 2022
+
+### Gitpod Integration
+
+Getting Serverless Cloud up and running on your local machine has always been fast and easy, but we wanted to make it even easier to build native cloud apps without any local setup at all. Starting today, you'll see a "Develop in Gitpod" button in the upper righthand corner of the Serverless Cloud dashboard. Click that and you can begin developing a new app or work on an existing Serverless Cloud project directly in Gitpod's amazing browser-based IDE.
+
+We're looking forward to see what you can build with an even easier developer experience with Serverless Cloud + Gitpod.
+
 ## June 2022
 
 ### Billing System Improvements
