@@ -43,9 +43,9 @@ Starts the local development server in a child process, if a script named `cloud
 
 ### `share [NAME]`
 
-Deploys the **code AND data** from your **developer sandbox** to a **preview instance** named `NAME`. If no `NAME` is provided, a randomly generated name will be created for you.
+Deploys the **code AND data** from your **developer sandbox** to a **preview stage** named `NAME`. If no `NAME` is provided, a randomly generated name will be created for you.
 
-A **preview instance** is an ephermeral instance that you can use to easily share your work with others. Preview instances allow you to create a stable snapshots of your **developer sandbox** so that you can get feedback while continuing to make changes to your own version.
+A **preview stage** is an ephermeral stage that you can use to easily share your work with others. Preview stages allow you to create a stable snapshots of your **developer sandbox** so that you can get feedback while continuing to make changes to your own version.
 
 If a script named `cloud:build` is defined in `package.json`, it will be run before deploying.
 
@@ -53,13 +53,13 @@ If a script named `cloud:build` is defined in `package.json`, it will be run bef
 
 Deploys the **code** from your **developer sandbox** to the provided `STAGE`. If no `STAGE` is provided, it will prompt you to enter a `STAGE`.
 
-A `STAGE` is a long-lived instance/environment that hosts your app. Common names for `STAGE`s are `prod`, `staging`, `qa`, and `dev`.
+A `STAGE` is a long-lived stage/environment that hosts your app. Common names for `STAGE`s are `prod`, `staging`, `qa`, and `dev`.
 
 If a script named `cloud:build` is defined in `package.json`, it will be run before deploying.
 
 ### `delete [STAGE]`
 
-Deletes the instance named `[STAGE]`. Warning: this is a destructive action.
+Deletes the stage named `[STAGE]`. Warning: this is a destructive action.
 
 ### `promote [from] [to]`
 
@@ -75,7 +75,7 @@ Exports data from your **developer sandbox** to a JSON file named `FILENAME` in 
 
 ### `test [PATTERN] [--workers <n>]`
 
-Runs defined tests against your connected developer sandbox. Please note that this will use and (depending on your tests) potentially modify data in your developer sandbox. To run these tests on an isolated instance, exit the shell and run `cloud test`.
+Runs defined tests against your connected developer sandbox. Please note that this will use and (depending on your tests) potentially modify data in your developer sandbox. To run these tests on an isolated stage, exit the shell and run `cloud test`.
 
 If `[PATTERN]` is specified, only test files that match the pattern will be run. The pattern is a regular expression that is matched against the test file path.
 
@@ -131,23 +131,23 @@ Logs the user out of the current session
 
 ### `cloud test`
 
-Deploys code from the current directory and run tests in an isolated instance. After tests are complete, the instance is automatically terminated.
+Deploys code from the current directory and run tests in an isolated stage. After tests are complete, the stage is automatically deleted.
 
 ### `cloud share [NAME]`
 
-Deploys the **code AND data** from your **developer sandbox** to a **preview instance** named `NAME`. If no `NAME` is provided, a randomly generated name will be created for you.
+Deploys the **code AND data** from your **developer sandbox** to a **preview stage** named `NAME`. If no `NAME` is provided, a randomly generated name will be created for you.
 
-A **preview instance** is an ephermeral instance that you can use to easily share your work with others. Preview instances allow you to create a stable snapshots of your **developer sandbox** so that you can get feedback while continuing to make changes to your own version.
+A **preview stage** is an ephermeral stage that you can use to easily share your work with others. Preview stages allow you to create a stable snapshots of your **developer sandbox** so that you can get feedback while continuing to make changes to your own version.
 
 ### `cloud deploy [STAGE]`
 
 Deploys the **code** from your local directory to the provided `STAGE`. If no `STAGE` is provided, it will prompt you for a `STAGE` name.
 
-A `STAGE` is a long-lived instance/environment that hosts your app. Common names for `STAGE`s are `prod`, `staging`, `qa`, and `dev`.
+A `STAGE` is a long-lived stage/environment that hosts your app. Common names for `STAGE`s are `prod`, `staging`, `qa`, and `dev`.
 
 ### `cloud delete [STAGE]`
 
-Deletes the instance named `[STAGE]`. Warning: this is a destructive action.
+Deletes the stage named `[STAGE]`. Warning: this is a destructive action.
 
 ### `cloud install [PACKAGENAME]`
 
@@ -157,13 +157,21 @@ Installs the specified npm package into your application. If you did not provide
 
 Uninstalls the specified npm package from your application.
 
-### `cloud clone [@ORG_NAME/APP_NAME/INSTANCE_NAME] [-overwrite]`
+### `cloud clone [@ORG_NAME/APP_NAME/stage_NAME] [-overwrite]`
 
-Copies **code** AND **data** from `INSTANCE_NAME` of service `APP_NAME` of org `ORG_NAME` to your local directory and your **developer sandbox**. If `ORG_NAME` is not specified it will clone from the logged in organization. Note that you should have access to the given org name otherwise the operation fails. `INSTANCE_NAME` can specify either a stage (like `prod` or `dev`), or a preview instance. If your current directory is not empty, you can use the optional `--overwrite` (or `-o`) flag. If no `APP_NAME` is specified, it will default to the app in your current directory. If not `INSTANCE_NAME` is specified, it will display a list of available instance to choose from.
+Copies **code** AND **data** from `stage_NAME` of service `APP_NAME` of org `ORG_NAME` to your local directory and your **developer sandbox**. If `ORG_NAME` is not specified it will clone from the logged in organization. Note that you should have access to the given org name otherwise the operation fails. `stage_NAME` can specify either a stage (like `prod` or `dev`), or a preview stage. If your current directory is not empty, you can use the optional `--overwrite` (or `-o`) flag. If no `APP_NAME` is specified, it will default to the app in your current directory. If not `stage_NAME` is specified, it will display a list of available stage to choose from.
 
 ### `cloud promote [from] [to]`
 
 Deploys code from one stage to another stage. If `from` and `to` are not provided, it will prompt you to enter the `from` and `to` stages.
+
+### `cloud run [script] [--stage <name>] [--test-stage]`
+
+Runs the npm script `cloud:<script>` locally, with access to the selected stage. The script will have access to the selected stage's params, data, and storage.
+
+By default the script runs with access to your developer sandbox. Use `--stage <name>` to use an existing stage.
+
+Specifying `--test-stage` will create a temporary test stage, which will be deleted after the script completes.
 
 ### `cloud import [FILENAME] [--overwrite] `
 
@@ -201,7 +209,7 @@ The following commands are supported in headless mode:
 
 ### `cloud test [PATTERN] [--workers <n>]`
 
-Deploys code from the current directory and run tests in an isolated instance. After tests are complete, the instance is automatically terminated.
+Deploys code from the current directory and run tests in an isolated stage. After tests are complete, the stage is automatically terminated.
 
 If `[PATTERN]` is specified, only test files that match the pattern will be run. The pattern is a regular expression that is matched against the test file path.
 
