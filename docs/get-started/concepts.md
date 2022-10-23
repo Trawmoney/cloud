@@ -36,7 +36,7 @@ Serverless Data is a powerful, scaleable datastore that's built-in to Serverless
 
 You can also seed data to your **developer sandbox** from a seed file (data.json by default) as well as export and import data. See [here](/cloud/docs/apps/data) for more information.
 
-## Serverless Storage 
+## Serverless Storage 
 
 Serverless Storage is an easy to use durable storage service for your Serverless Cloud applications. It can be used for storing any sort of binary data, and can be read back at any time. You can use `storage` interface with `read`, `write`, `move`, `copy`, and `exists` methods to interact with Storage component with no configuration, just from code. Putting files under `/public` folder to make the assets available in the closest proximity with your users thanks to automatically available global CDN. You can also serve any of your static assets by putting them under `/static` directory. See [here](/cloud/docs/apps/blob-storage) for more information. 
 
@@ -48,7 +48,7 @@ Serverless Cloud lets you define parameters/secrets to inject on your applicatio
 
 Using `schedule` interface, you can define periodic tasks on Serverless Cloud. This is particularly useful when you have to run a batch job or make a periodic check. See [here](/cloud/docs/apps/schedule) for more information.
 
-## Serverless Events 
+## Serverless Events 
 
 Serverless Cloud allows developers to build asynchronous workflows just by writing code. You can react to changes in Serverless Data and Serverless Storage using methods `data.on` and `storage.on`. You can also emit and dispatch any events using the `events` interface of SDK with methods `publish` and `on`. You can build event-driven applicaitons, one-off-events, react to changes in data and files just by using these methods. All the necessary infrastructure will be spun off automatically. See [here](/cloud/docs/apps/events) for more information.
 
