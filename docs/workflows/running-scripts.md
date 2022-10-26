@@ -25,6 +25,12 @@ The `cloud run [script]` command has the following options:
 
 > Note: if you specify `--test-stage`, the `--stage` option will be ignored if it is present.
 
+## Additional npm and script arguments
+
+You can pass additional arguments to npm by adding a double dash followed by the arguments. If you also need to pass additional arguments to the npm script, you can add another double dash followed by the script arguments.
+
+For example `cloud run migrate --stage staging -- --if-present -- script-argument --script-option` will result in running the command `npm run cloud:migrate --if-present -- script-argument --script-option` using the environment from the `staging` stage.
+
 ## Example: running a migration script
 
 In your `package.json` define a script named "cloud:migrate" which runs "./scripts/migrate.js":
@@ -61,6 +67,10 @@ To run the script with access to your developer sandbox:
 To run on a stage called "staging":
 
 `cloud run migrate --stage staging`
+
+Use a double dash to pass additional options to the script:
+
+`cloud run migrate --stage staging -- some-option`
 
 ## Example: custom test runner
 
@@ -102,3 +112,7 @@ To run the tests against a "staging" stage:
 To use a temporary test instance:
 
 `cloud run test --test-stage`
+
+You can use a double dash to pass additional arguments to jest:
+
+`cloud run test --test-stage -- test-pattern`

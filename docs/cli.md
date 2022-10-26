@@ -165,13 +165,15 @@ Copies **code** AND **data** from `stage_NAME` of service `APP_NAME` of org `ORG
 
 Deploys code from one stage to another stage. If `from` and `to` are not provided, it will prompt you to enter the `from` and `to` stages.
 
-### `cloud run [script] [--stage <name>] [--test-stage]`
+### `cloud run [script] [--stage <name>] [--test-stage] [-- npm-arguments [-- script-arguments]]`
 
 Runs the npm script `cloud:<script>` locally, with access to the selected stage. The script will have access to the selected stage's params, data, and storage.
 
 By default the script runs with access to your developer sandbox. Use `--stage <name>` to use an existing stage.
 
 Specifying `--test-stage` will create a temporary test stage, which will be deleted after the script completes.
+
+You may pass additional arguments to npm by adding a double dash followed by the arguments, and another double dash to pass arguments to the script. For example `cloud run migrate --stage staging -- --if-present -- script-argument --script-option` will result in running `npm run cloud:migrate --if-present -- script-argument --script-option` using the environment from the `staging` stage.
 
 ### `cloud import [FILENAME] [--overwrite] `
 
