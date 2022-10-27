@@ -291,6 +291,7 @@ export default function HomePage() {
               bit of <br />
               React to implement a simple TODO application.
             </h4>
+            <p>Instance url: {process.env.CLOUD_URL}</p>
           </div>
         </header>
         <main>
