@@ -2,7 +2,7 @@
 title: Promoting Stages
 menuText: Promoting Stages
 description: Learn how to promote your application to other stages.
-menuOrder: 6
+menuOrder: 7
 parent: Worklows
 ---
 
